@@ -1,9 +1,10 @@
 {
     "version": 2,
+    "name":"major",
     "builds": [
       {
         "src": "src/index.js",
-        "use": "@now/node"
+        "use": "@vercel/node"
       }
     ],
     "routes": [
