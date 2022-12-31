@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "src/index.js",
+        "src": "ecosystem.config.json",
         "use": "@now/node"
       }
     ],
     "routes": [
       {
-        "src": "src/(.*)",
-        "dest": "src/index.js"
+        "src": "/(.*)",
+        "dest": "ecosystem.config.json"
       }
     ]
   }

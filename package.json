@@ -1,5 +1,5 @@
 {
-  "name": "ToolsApp",
+  "name": "major-backend",
   "version": "0.0.1",
   "description": "",
   "bin": "bin/createNodejsApp.js",
