@@ -15,6 +15,7 @@ router.get(
   '/',
   swaggerUi.setup(specs, {
     explorer: true,
+    customCssUrl:'https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui.css'
   })
 );
 
