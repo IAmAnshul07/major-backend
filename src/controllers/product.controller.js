@@ -7,8 +7,8 @@ const { productService } = require('../services');
 const createProduct = catchAsync(async (req, res) => {
   const data = {
     ...req.body,
-    sellerId: req.user._id
-  }
+    sellerId: req.user._id,
+  };
   const password = await productService.createProduct(data);
   res.status(httpStatus.CREATED).send(password);
 });
@@ -17,6 +17,13 @@ const getAllProducts = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['productName']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await productService.queryAllProducts({ sellerId:req.user._id,...filter}, options,req.user._id);
+  res.send(result);
+});
+
+const getAllProductsForFarmer = catchAsync(async (req, res) => {
+  const filter = pick(req.query, ['productName']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const result = await productService.queryAllProducts(filter, options,req.user._id);
   res.send(result);
 });
 
@@ -41,6 +48,7 @@ const deleteProduct = catchAsync(async (req, res) => {
 module.exports = {
   createProduct,
   getAllProducts,
+  getAllProductsForFarmer,
   getProduct,
   updateProduct,
   deleteProduct,

@@ -12,6 +12,10 @@ router
   .get(auth('getProduct'), validate(productValidation.getAllProducts), productController.getAllProducts);
 
 router
+  .route('/farmer')
+  .get(auth('getProduct'), validate(productValidation.getAllProducts), productController.getAllProductsForFarmer);
+
+router
   .route('/:productId')
   .get(auth('getProduct'), validate(productValidation.getProduct), productController.getProduct)
   .patch(auth('manageProduct'), validate(productValidation.updateProduct), productController.updateProduct)
@@ -30,7 +34,7 @@ module.exports = router;
  * @swagger
  * /passwords:
  *   post:
- *     summary: Save a Password 
+ *     summary: Save a Password
  *     description: admins and user can save password.
  *     tags: [Saved Passwords]
  *     security:
